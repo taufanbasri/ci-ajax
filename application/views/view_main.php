@@ -16,28 +16,22 @@ $(document).ready(function() {
         $("#list_status").html(respon);
       }
     });
-    });
-});
-</script>
-
-<script type="text/javascript">
-  $(document).ready(function() {
-    $("#submitstatus").click(function() {
-      var status = $("#status").val();
-
-      $.ajax({
-        url: 'Main/postStatus',
-        type: 'POST',
-        data: 'status='+status,
-        success: function(respon) {
-          load_status();
-        }
-      });
-      });
   });
-</script>
 
-<script type="text/javascript">
+  $("#submitstatus").click(function() {
+    var status = $("#status").val();
+
+    $.ajax({
+      url: 'Main/postStatus',
+      type: 'POST',
+      data: 'status='+status,
+      success: function(respon) {
+        load_status();
+      }
+    });
+  });
+});
+
 function hapus(id) {
   $.ajax({
     url: "Main/hapusStatus",
@@ -49,16 +43,17 @@ function hapus(id) {
   });
 }
 
-  function load_status() {
-    $.ajax({
-      url: "Main/loadStatus",
-      type: "GET",
-      data: '',
-      success: function(respon) {
-        $("#list_status").html(respon);
-      }
-    });
-  }
+function load_status() {
+  $.ajax({
+    url: "Main/loadStatus",
+    type: "GET",
+    data: '',
+    success: function(respon) {
+      $("#list_status").html(respon);
+    }
+  });
+}
+
 </script>
 
 <select id="field">
